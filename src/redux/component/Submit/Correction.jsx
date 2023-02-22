@@ -14,7 +14,6 @@ import { Inner } from "../../../Globalstyle";
 import styled from "styled-components";
 import { onchangePassion } from "../../../API/api";
 import { useQueryClient,useMutation } from 'react-query';
-import { v4 as uuidv4 } from "uuid";
 import { useNavigate, useParams } from "react-router-dom";
 import moment from "moment";
 import "moment/locale/ko";
@@ -73,7 +72,7 @@ function Correction() {
             //비트맵 데이터를 저장 가능하도록 스트링으로 바꾼다.
             const baseSub = base.toString();
             //imgBase에 baseSub를 붙인 새로운 배열을 스테이트 한다.
-            setImgBaseChange((imgBase) => [...imgBase, baseSub]);
+            setImgBaseChange((imgBaseChange) => [...imgBaseChange, baseSub]);
           }
         };
       }

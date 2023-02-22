@@ -6,7 +6,6 @@ import { useQuery } from 'react-query';
 import user from "../../../img/user.png";
 import { MdMoreVert } from "react-icons/md";
 import { useQueryClient, useMutation } from "react-query";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
   Right,
@@ -88,9 +87,11 @@ function List() {
                         <ModalButton onClick={() => delBtn(item.id)}>
                           삭제
                         </ModalButton>
-                        <Link to={`/${item.id}`} key={item.id}>
-                          수정
-                        </Link>
+                        <ModalButton>
+                          <Link2 to={`/${item.id}`} key={item.id}>
+                            수정
+                          </Link2>
+                        </ModalButton>
                         <ModalButton onClick={() => closeModal()}>
                           닫기
                         </ModalButton>
@@ -123,7 +124,16 @@ const MdMoreVert2 = styled(MdMoreVert)`
   position:relative;
   right:-5px
 `
-
+const Link2 = styled(Link)`
+  width: 100%;
+  display: block;
+  color: #000;
+  text-decoration: none;
+  line-height: 50px;
+  &&:hover {
+    color: #fff;
+  }
+`;
 const Inner2 = styled(Inner)`
   margin:60px auto ;
 `;

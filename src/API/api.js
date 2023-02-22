@@ -23,7 +23,7 @@ const onchangePassion = async(payload)=>{
         title: payload.title,
         username: payload.username,
         text: payload.text,
-        url: payload.imgBase,
+        url: payload.url,
         
     })
    
