@@ -70,7 +70,7 @@ function List() {
   return (
     <Inner2>
       <Listul>
-        {data.map((item) => {
+        {data && data.map((item) => {
           return (
             <Listli key={item.id}>
               <Top>
