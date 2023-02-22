@@ -3,7 +3,7 @@
 const ADD_PASS = 'ADD_PASS'
 const REMOVE_PASS ='REMOVE_PASS'
 const SWITCH_PASS = 'SWITCH_PASS'
-
+const OPEN_PASS = 'OPEN_PASS'
 //리듀서 만든거 내보내기 4 
 export const add_Pass = (payload)=>{
   return{
@@ -11,6 +11,13 @@ export const add_Pass = (payload)=>{
     payload:payload
   }
 }
+export const open_Pass = (payload)=>{
+  return{
+    type:OPEN_PASS,
+    payload:payload
+  }
+}
+
 export const remove_Pass = (payload)=>{
   return{
     type:REMOVE_PASS,
@@ -50,6 +57,8 @@ const passion = (state = ininialState,action)=>{
       return [...state,action.payload]
     case REMOVE_PASS:
       return state.filter((item)=>item.id !==action.payload )
+    case OPEN_PASS:
+      return state.filter((item)=>item.id ===action.payload )
     case SWITCH_PASS:
       return state.map((item)=>{
         if(item.id === action.payload){

@@ -3,7 +3,7 @@ import styled from "styled-components";
 function Footer() {
   const date = new Date();
   const year = date.getFullYear()
-  console.log(Date);
+  //console.log(Date);
   return <Bottom>© {year} Codipocket. All Rights Reserved.</Bottom>;
 }
 

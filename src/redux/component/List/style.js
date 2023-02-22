@@ -114,4 +114,39 @@ const Content = styled.p`
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
-export {Fliterlist,Right,Img,Image,Listul,Listli,FliterBtn,Username,Time,Title,Content}
+const Modalbg = styled.div`
+  position: fixed;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+`;
+const Modalcontent = styled.div`
+  width:300px;
+  border-radius:10px;
+  overflow: hidden;
+  background:#fff;
+`;
+const ModalButton = styled.button`
+  width: 100%;
+  height: 50px;
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  outline: 0;
+  &&:hover {
+    color: #fff;
+    background: #3e56e9;
+  }
+  &&:last-child {
+    border-bottom: 0;
+  }
+`;
+export {Fliterlist,Right,Img,Image,Listul,Listli,FliterBtn,Username,Time,Title,Content,Modalcontent,ModalButton,Modalbg}

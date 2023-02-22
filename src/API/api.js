@@ -12,14 +12,21 @@ const addPassion = async (newPassion)=>{
     await axios.post(`${process.env.REACT_APP_SERVER_URL}/passion`,newPassion)
 }
 
-// //제거
-// const onDelPassion = async (id)=>{
-//     await axios.delete(`${process.env.REACT_APP_SERVER_URL}/passion/${id}`)
-//     //console.log('respon',respon)
-// }
-// //변경
-// const onchangePassion = async(id)=>{
-//     await axios.patch(`${process.env.REACT_APP_SERVER_URL}/passion/${id}`)
-// }
+//제거
+const onDelPassion = async (id)=>{
+    await axios.delete(`${process.env.REACT_APP_SERVER_URL}/passion/${id}`)
+    //console.log('respon',respon)
+}
+//변경
+const onchangePassion = async(payload)=>{
+    await axios.patch(`${process.env.REACT_APP_SERVER_URL}/passion/${payload.id}`,{
+        title: payload.title,
+        username: payload.username,
+        text: payload.text,
+        url: payload.imgBase,
+        
+    })
+   
+}
 
-export {getPassion,addPassion}
+export {getPassion,addPassion,onDelPassion,onchangePassion}
