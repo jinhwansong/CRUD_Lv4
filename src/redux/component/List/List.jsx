@@ -70,7 +70,7 @@ function List() {
   return (
     <Inner2>
       <Listul>
-        {data.product.map((item) => {
+        {data.map((item) => {
           return (
             <Listli key={item.id}>
               <Top>
