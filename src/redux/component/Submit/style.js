@@ -2,31 +2,14 @@ import styled from "styled-components";
 import upload from '../../../img/upload.png'
 const Title = styled.input`
   width: 100%;
-  border: 0;
-  border: 1px solid #eee;
   height: 55px;
-  padding: 15px 15px;
-  box-sizing: border-box;
-  outline: 0;
-  font-size:15px;
   margin-bottom: 20px;
   font-weight:500;
-  &:focus {
-    border: 1px solid #3e56e9;
-  }
+  
 `;
 const Context = styled.textarea`
-  
   width: 100%;
-  border: 1px solid #eee;
   height: 250px;
-  padding: 15px 15px;
-  box-sizing: border-box;
-  outline: 0;
-  font-size: 15px;
-  &:focus {
-    border: 1px solid #3e56e9;
-  }
 `;
 const InputBox = styled.div`
   border: 1px dashed #ddd;

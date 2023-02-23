@@ -1,20 +1,16 @@
 import {
-  Top,
   Bottom,
   Title,
-  Icon,
-  Iconli,
   Input,
   Search,
   Slide,
+  Label,
 } from "./style";
 import { Inner } from '../../../Globalstyle';
 import { Link } from 'react-router-dom';
 import styled from "styled-components";
 import {
-  faUser,
   faMagnifyingGlass,
-  faCircleUp,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import viaul01 from "../../../img/viaul01.jpg";
@@ -25,68 +21,46 @@ import "swiper/css";
 
 
 function Header() {
-   const Links = styled(Link)`
-     text-decoration: none;
-     color: #000;
-   `;
    const TOPLink = styled(Link)`
-     text-decoration: none;
+     background: #000;
+     width: 100%;
+     height: 34px;
      color: #fff;
+     line-height: 34px;
+     text-align: center;
+     display:block;
    `;
    const Links2 = styled(Link)`
-     text-decoration: none;
-     color: #000;
+     color: #fff;
+     background: #3e56e9;
+     width:100px;
+     height:45px;
+     border-radius: 10px;
+     text-align: center;
+     line-height:45px;
    `;
-   const FontAwesomeIcons = styled(FontAwesomeIcon)`
-    width:18px;
-    height:18px;
-   `
    const Swipers = styled(Swiper)`
     border-top:1px solid #eee
    `;
-   const SearchIcons = styled(FontAwesomeIcon)`
-     
-     width: 15px;
-     height: 15px;
-   `;
-   const Label = styled.label`
-     position: absolute;
-     top: 50%;
-     transform: translateY(-50%);
-     right: 25px;
-     cursor: pointer;
-   `;
+
+   
   SwiperCore.use([Autoplay]);
   return (
-    <>
-      <Top>
-        <TOPLink to="Submit"> 나만의 패션을 등록해보세요!</TOPLink>
-      </Top>
+    <div>
+      <TOPLink to="Submit"> 나만의 패션을 등록해보세요!</TOPLink>
+
       <Inner>
         <Bottom>
           <Title>
-            <Links to="/">Codipocket</Links>
+            <Link to="/">Codipocket</Link>
           </Title>
           <Search>
-            <Input
-              type="text"
-              id="search"
-              placeholder="작성자명을 적어주세요"
-            />
+            <Input type="text" placeholder="작성자명을 적어주세요" />
             <Label htmlFor="search">
-              <SearchIcons icon={faMagnifyingGlass} />
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
             </Label>
           </Search>
-          <Icon>
-            <Iconli>
-              <Links2 to="Submit">
-                <FontAwesomeIcons icon={faCircleUp} />
-              </Links2>
-            </Iconli>
-            <Iconli>
-              <FontAwesomeIcons icon={faUser} />
-            </Iconli>
-          </Icon>
+          <Links2 to="Submit">업로드</Links2>
         </Bottom>
       </Inner>
       <Swipers
@@ -102,7 +76,7 @@ function Header() {
           <Slide style={{ background: `url('${viaul02}') center center` }} />
         </SwiperSlide>
       </Swipers>
-    </>
+    </div>
   );
 }
 

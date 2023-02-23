@@ -40,11 +40,53 @@ const Globalstyle = createGlobalStyle`
         color:#000;
         line-height: 1.7;
     }
+    a{text-decoration: none;}
+    input,textarea{box-sizing: border-box;outline: 0;border: 1px solid #eee;padding: 15px 15px;}
+    input:focus,textarea:focus{border: 1px solid #3e56e9;}
+
+
 `
 const Inner = styled.div`
     width:1200px;
     margin:0 auto;
     overflow: hidden;
 `
-
-export {Globalstyle,Inner}
+const Innerpadding = styled.div`
+    margin:60px 0;
+`
+const Right = styled.div`
+  display:flex;
+  align-items: center;
+  margin-bottom:15px;
+`
+const Listul = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+const Username = styled.p`
+  max-width:200px;
+  margin-right:20px;
+  margin-left:15px;
+  line-height:1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  
+`
+const Time = styled.p`
+  line-height:1;
+    position:relative;
+  &::after{
+    position:absolute;
+    content: '';
+    width:3px;
+    height:3px;
+    border-radius: 3px;
+    margin:auto;
+    left:-12px;
+    top:0;
+    bottom: 0;;
+    background:#000
+  }
+`
+export {Globalstyle,Inner,Innerpadding,Right,Username,Time,Listul}

@@ -10,7 +10,7 @@ import {
   SubmitImg,
   SubmitImgbox,
 } from "./style";
-import { Inner } from "../../../Globalstyle";
+import { Inner, Innerpadding } from "../../../Globalstyle";
 import styled from "styled-components";
 import { onchangePassion } from "../../../API/api";
 import { useQueryClient,useMutation } from 'react-query';
@@ -102,50 +102,52 @@ function Correction() {
     navigate("/");
   }
   return (
-    <Inner2>
-      <Title
-        type="text"
-        placeholder="50자내로 제목을 수정해주세요"
-        maxLength={50}
-        value={titleChange}
-        onChange={titleHandlerChange}
-      />
-      <Title
-        type="text"
-        placeholder="10자내로 작성자명을 수정해주세요"
-        value={usernameChange}
-        maxLength={10}
-        onChange={usernameHandlerChange}
-      />
-      <Context
-        type="text"
-        placeholder="사진에 대한 내용을 수정해서 적어주세요"
-        value={textChange}
-        onChange={textHandlerChange}
-      />
-      <InputBox>
-        <Input
-          type="file"
-          accept="image/png,image/jpg,image/jpeg"
-          onChange={imgHandlerChange}
+    <Innerpadding>
+      <Inner2>
+        <Title
+          type="text"
+          placeholder="50자내로 제목을 수정해주세요"
+          maxLength={50}
+          value={titleChange}
+          onChange={titleHandlerChange}
         />
-        <Label htmlFor="imagebox">
-          업로드할 사진을 추가해주세요(최대 1개입니다)
-        </Label>
-      </InputBox>
-      <SubmitImgbox>
-        {imgBaseChange.map((item) => {
-          return <SubmitImg src={item} alt="First slide" />;
-        })}
-      </SubmitImgbox>
-      <Button onClick={onChangeBtn}>수정하기</Button>
-    </Inner2>
+        <Title
+          type="text"
+          placeholder="10자내로 작성자명을 수정해주세요"
+          value={usernameChange}
+          maxLength={10}
+          onChange={usernameHandlerChange}
+        />
+        <Context
+          type="text"
+          placeholder="500자내로 사진에 대한 내용을 수정해서 적어주세요"
+          maxLength={500}
+          value={textChange}
+          onChange={textHandlerChange}
+        />
+        <InputBox>
+          <Input
+            type="file"
+            accept="image/png,image/jpg,image/jpeg"
+            onChange={imgHandlerChange}
+          />
+          <Label htmlFor="imagebox">
+            업로드할 사진을 추가해주세요(최대 1개입니다)
+          </Label>
+        </InputBox>
+        <SubmitImgbox>
+          {imgBaseChange.map((item) => {
+            return <SubmitImg src={item} alt="First slide" />;
+          })}
+        </SubmitImgbox>
+        <Button onClick={onChangeBtn}>수정하기</Button>
+      </Inner2>
+    </Innerpadding>
   );
 }
 
 const Inner2 = styled(Inner)`
   width: 700px;
-  margin: 80px auto;
   font-size: 0;
 `;
 export default Correction;

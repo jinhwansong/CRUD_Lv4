@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const Fliterlist = styled.div`
-  display:flex;
-`
+
 const FliterBtn = styled.button`
   margin-right:15px;
   border:0;
@@ -27,11 +25,8 @@ const FliterBtn = styled.button`
   }
 `
 
-const Listul = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-`
-const Listli = styled.li`
+
+const Listli = styled.div`
   margin-top:30px;
   width:386px;
   margin-right:21px;
@@ -49,7 +44,8 @@ const Image = styled.div`
   font-size: 0;
   padding-bottom: 113.47%;
   overflow: hidden;
-  margin-bottom:20px
+  margin-bottom:20px;
+  border-radius: 10px;;
 `;
 const Img = styled.img`
   width:100%;
@@ -61,41 +57,9 @@ const Img = styled.img`
   right: 0;
   
 `
-const Right = styled.div`
-  display:flex;
-  align-items: center;
-  margin-bottom:15px;
-`
-const Username = styled.p`
-  max-width:150px;
-  margin-right:20px;
-  margin-left:10px;
 
-  line-height:1;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  
-`
-const Time = styled.p`
-  line-height:1;
-    position:relative;
-  &::after{
-    position:absolute;
-    content: '';
-    width:3px;
-    height:3px;
-    border-radius: 3px;
-    margin:auto;
-    left:-12px;
-    top:0;
-    bottom: 0;;
-    background:#000
-  }
-`
 const Title = styled.em`
 display:block;
-color:#222;
 font-weight:600;
 line-height:1;
 text-overflow: ellipsis;
@@ -104,7 +68,6 @@ overflow: hidden;
 font-size:18px;
 `
 const Content = styled.p`
-  color:#555;
   line-height: 20px;
   max-height:40px;
   margin-top:10px;
@@ -149,4 +112,4 @@ const ModalButton = styled.button`
     border-bottom: 0;
   }
 `;
-export {Fliterlist,Right,Img,Image,Listul,Listli,FliterBtn,Username,Time,Title,Content,Modalcontent,ModalButton,Modalbg}
+export {Img,Image,Listli,FliterBtn,Title,Content,Modalcontent,ModalButton,Modalbg}

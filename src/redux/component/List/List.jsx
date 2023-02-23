@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Inner } from '../../../Globalstyle';
+import {
+  Inner,
+  Innerpadding,
+  Right,
+  Username,
+  Time,
+  Listul,
+} from "../../../Globalstyle";
 import styled from "styled-components";
 import { getPassion, onDelPassion } from "../../../API/api";
 import { useQuery } from 'react-query';
@@ -8,13 +15,9 @@ import { MdMoreVert } from "react-icons/md";
 import { useQueryClient, useMutation } from "react-query";
 import { Link } from "react-router-dom";
 import {
-  Right,
   Img,
   Image,
-  Listul,
   Listli,
-  Username,
-  Time,
   Title,
   Content,
   Modalcontent,
@@ -24,6 +27,7 @@ import {
 
 
 function List() {
+  //const navigate = useNavigate("");
   //모달페이지
   const [modalOpen, setModalopen] = useState(false);
   const modalBtn = (id) => {
@@ -60,58 +64,63 @@ function List() {
 
   const { isLoading, isError, data } = useQuery("passion", getPassion);
   if (isLoading) {
-    return;
+    return <h1>"성공햇습니다!"</h1>;
   }
   if (isError) {
-    return alert("오류입니다! 새로고침을 눌러주세요");
+    return <h1>"오류입니다! 새로고침을 눌러주세요"</h1>;
   }
   
 
+
   return (
-    <Inner2>
-      <Listul>
-        {data.map((item) => {
-          return (
-            <Listli key={item.id}>
-              <Top>
-                <Right>
-                  <img src={user} alt="아이콘" />
-                  <Username>{item.username}</Username>
-                  <Time>{item.time}</Time>
-                </Right>
+    <Innerpadding>
+      <Inner>
+        <Listul>
+          {data.map((item) => {
+            return (
+              <Listli key={item.id}>
+                <Top>
+                  <Right>
+                    <img src={user} alt="아이콘" />
+                    <Username>{item.username}</Username>
+                    <Time>{item.time}</Time>
+                  </Right>
+                  <div>
+                    <MdMoreVert2 onClick={() => modalBtn(item.id)} />
+                    {modalOpen === item.id && (
+                      <Modalbg setModalopen={setModalopen} item={item}>
+                        <Modalcontent>
+                          <ModalButton onClick={() => delBtn(item.id)}>
+                            삭제
+                          </ModalButton>
+                          <ModalButton>
+                            <Link2 to={`/${item.id}/correction`} key={item.id}>
+                              수정
+                            </Link2>
+                          </ModalButton>
+                          <ModalButton onClick={() => closeModal()}>
+                            닫기
+                          </ModalButton>
+                        </Modalcontent>
+                      </Modalbg>
+                    )}
+                  </div>
+                </Top>
+                <Image>
+                  <Link to={`/${item.id}`} key={item.id}>
+                    <Img src={item.url} alt="패션이미지" />
+                  </Link>
+                </Image>
                 <div>
-                  <MdMoreVert2 onClick={() => modalBtn(item.id)} />
-                  {modalOpen === item.id && (
-                    <Modalbg setModalopen={setModalopen} item={item}>
-                      <Modalcontent>
-                        <ModalButton onClick={() => delBtn(item.id)}>
-                          삭제
-                        </ModalButton>
-                        <ModalButton>
-                          <Link2 to={`/${item.id}`} key={item.id}>
-                            수정
-                          </Link2>
-                        </ModalButton>
-                        <ModalButton onClick={() => closeModal()}>
-                          닫기
-                        </ModalButton>
-                      </Modalcontent>
-                    </Modalbg>
-                  )}
+                  <Title>{item.title}</Title>
+                  <Content>{item.text}</Content>
                 </div>
-              </Top>
-              <Image>
-                <Img src={item.url} alt="패션이미지" />
-              </Image>
-              <div>
-                <Title>{item.title}</Title>
-                <Content>{item.text}</Content>
-              </div>
-            </Listli>
-          );
-        })}
-      </Listul>
-    </Inner2>
+              </Listli>
+            );
+          })}
+        </Listul>
+      </Inner>
+    </Innerpadding>
   );
 }
 const Top = styled.div`
@@ -134,8 +143,6 @@ const Link2 = styled(Link)`
     color: #fff;
   }
 `;
-const Inner2 = styled(Inner)`
-  margin:60px auto ;
-`;
+
 
 export default List

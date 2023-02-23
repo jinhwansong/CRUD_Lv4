@@ -9,7 +9,7 @@ import {
   SubmitImg,
   SubmitImgbox,
 } from "./style";
-import { Inner } from "../../../Globalstyle";
+import { Inner, Innerpadding } from "../../../Globalstyle";
 import styled from "styled-components";
 import { addPassion } from "../../../API/api";
 import { useQueryClient,useMutation } from 'react-query';
@@ -115,52 +115,56 @@ function Submit() {
     navigate("/");
   }
   return (
-    <Inner2>
-      <form onSubmit={onSumbitBtn}>
-        <Title
-          type="text"
-          placeholder="50자내로 제목을 작성해주세요"
-          maxLength={50}
-          value={title}
-          onChange={titleHandler}
-        />
-        <Title
-          type="text"
-          placeholder="10자내로 작성자명을 작성해주세요"
-          value={username}
-          maxLength={10}
-          onChange={usernameHandler}
-          oninput="nameOnInput(this, 10)"
-        />
-        <Context
-          type="text"
-          placeholder="사진에 대한 내용을 적어주세요"
-          value={text}
-          onChange={textHandler}
-        />
-        <InputBox>
-          <Input
-            type="file"
-            // multiple
-            accept="image/png,image/jpg,image/jpeg"
-            onChange={imgHandler}
+    <Innerpadding>
+      <Inner2>
+        <form onSubmit={onSumbitBtn}>
+          <Title
+            type="text"
+            placeholder="50자내로 제목을 작성해주세요"
+            maxLength={50}
+            value={title}
+            onChange={titleHandler}
           />
-          <Label htmlFor="imagebox">업로드할 사진을 추가해주세요(최대 1개입니다)</Label>
-        </InputBox>
-        <SubmitImgbox>
-          {imgBase.map((item) => {
-            return <SubmitImg src={item} alt="First slide" />;
-          })}
-        </SubmitImgbox>
-        <Button type="submit">업로드하기</Button>
-      </form>
-    </Inner2>
+          <Title
+            type="text"
+            placeholder="10자내로 작성자명을 작성해주세요"
+            value={username}
+            maxLength={10}
+            onChange={usernameHandler}
+            oninput="nameOnInput(this, 10)"
+          />
+          <Context
+            type="text"
+            placeholder="사진에 대한 내용을 적어주세요"
+            maxLength={500}
+            value={text}
+            onChange={textHandler}
+          />
+          <InputBox>
+            <Input
+              type="file"
+              // multiple
+              accept="image/png,image/jpg,image/jpeg"
+              onChange={imgHandler}
+            />
+            <Label htmlFor="imagebox">
+              업로드할 사진을 추가해주세요(최대 1개입니다)
+            </Label>
+          </InputBox>
+          <SubmitImgbox>
+            {imgBase.map((item) => {
+              return <SubmitImg src={item} alt="First slide" />;
+            })}
+          </SubmitImgbox>
+          <Button type="submit">업로드하기</Button>
+        </form>
+      </Inner2>
+    </Innerpadding>
   );
 }
 
 const Inner2 = styled(Inner)`
   width: 700px;
-  margin: 80px auto;
   font-size: 0;
 `;
 export default Submit
