@@ -40,7 +40,7 @@ const Globalstyle = createGlobalStyle`
         color:#000;
         line-height: 1.7;
     }
-    a{text-decoration: none;}
+    a{text-decoration: none;color: #000;}
     input,textarea{box-sizing: border-box;outline: 0;border: 1px solid #eee;padding: 15px 15px;}
     input:focus,textarea:focus{border: 1px solid #3e56e9;}
 

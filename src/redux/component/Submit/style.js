@@ -10,6 +10,7 @@ const Title = styled.input`
 const Context = styled.textarea`
   width: 100%;
   height: 250px;
+  
 `;
 const InputBox = styled.div`
   border: 1px dashed #ddd;

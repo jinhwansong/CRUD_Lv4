@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import {
   Title,
   Context,
@@ -33,9 +33,9 @@ function Correction() {
   };
 
   const [textChange, setTextChange] = useState("");
-  const textHandlerChange = (e) => {
+  const textHandlerChange = useCallback((e) => {
     setTextChange(e.target.value);
-  };
+  },[]);
 
   const quertClient = useQueryClient();
   const swichmurarion = useMutation(onchangePassion, {
@@ -90,12 +90,15 @@ function Correction() {
       alert("사진 내용을 적어주세요");
       return;
     }
+    const contentsReplaceNewline = () => {
+      return textChange.replaceAll("<br>", "\r\n");
+    };
       const passionChange = {
         title: titleChange,
         username: usernameChange,
-        text: textChange,
+        text: contentsReplaceNewline(),
         id: id,
-        time:Timechage,
+        time: Timechage,
         url: imgBaseChange,
       };
     swichmurarion.mutate(passionChange);
@@ -124,6 +127,8 @@ function Correction() {
           maxLength={500}
           value={textChange}
           onChange={textHandlerChange}
+          cols="20"
+          wrap="hard"
         />
         <InputBox>
           <Input
